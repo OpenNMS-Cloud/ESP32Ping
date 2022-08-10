@@ -20,7 +20,7 @@
 
 
 extern "C" void esp_schedule(void) {};
-//extern "C" void esp_yield(void) {};
+extern "C" void esp_yield(void) {};
 
 PingClass::PingClass() {}
 
@@ -67,11 +67,6 @@ bool PingClass::ping(const char *host, byte count) {
 float PingClass::averageTime() {
     return _avg_time;
 }
-
-byte PingClass::errors() {
-    return _errors;
-}
-
 
 void PingClass::_ping_recv_cb(void *opt, void *resp) {
     // Cast the parameters to get some usable info
